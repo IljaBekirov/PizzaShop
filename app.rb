@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
 end
 
 before do
-	@product = Product.all
+	@products = Product.all
 end
 
 get '/' do

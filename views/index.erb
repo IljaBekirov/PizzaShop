@@ -1,13 +1,15 @@
 <h2>Welcome to Pizza Shop</h2>
   <div class="row">
-    <% @product.each do |prod| %>
+    <% @products.each do |prod| %>
       <div class="col-sm-6 col-md-3"  href="#">
         <div class="thumbnail"  href="#">
           <img src="<%= prod.path_to_image %>" alt="..." class="img-circle" style="width: 140px; height: 140px;">
           <div class="caption">
             <h4><%= prod.title %></h4>
+            <p>Размер: <%= prod.size.to_i %> см</p>
+            <p>Цена: <%= prod.price %> руб.</p>
 <!--            <p><%#= prod.description %></p>-->
-            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            <p><a href="#" class="btn btn-primary" role="button">Купить в 1 клик</a> <a href="#" class="btn btn-default" role="button">В корзину</a></p>
           </div>
         </div>
       </div>
@@ -15,36 +17,3 @@
   </div>
 
 <button class="btn btn-primary btn-lg" onclick="something()">Click me</button>
-
-
-<!--<div class="row">-->
-<!--  <div class="col-sm-6 col-md-3">-->
-<!--    <div class="thumbnail">-->
-      <%# @product.each do |prod| %>
-<!--        <img src="<%#= prod.path_to_image %>" alt="..." class="img-circle" style="width: 140px; height: 140px;">-->
-<!--        <div class="caption">-->
-<!--          <h3><%#= prod.description %></h3>-->
-<!--          <p>...</p>-->
-<!--          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-<!--        </div>-->
-      <%# end %>
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-<!--<div class="row">-->
-<!--  <div class="col-sm-6 col-md-4">-->
-<!--    <div class="thumbnail">-->
-<!--      <img src="..." alt="...">-->
-<!--      <div class="caption">-->
-<!--        <h3>Thumbnail label</h3>-->
-<!--        <p>...</p>-->
-<!--        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
-
-
