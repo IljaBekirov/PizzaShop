@@ -9,7 +9,7 @@
             <p>Размер: <%= prod.size.to_i %> см</p>
             <p>Цена: <%= prod.price %> руб.</p>
 <!--            <p><%#= prod.description %></p>-->
-            <p><a href="#" class="btn btn-primary" role="button">Купить в 1 клик</a> <a href="#" class="btn btn-default" role="button" onclick="add_to_cart(<%= prod.id %>)">В корзину</a></p>
+            <p><a href="#" class="btn btn-primary" role="button">Купить в 1 клик</a> <a class="btn btn-default" role="button" onclick="add_to_cart(<%= prod.id %>)">В корзину</a></p>
           </div>
         </div>
       </div>
@@ -17,3 +17,10 @@
   </div>
 
 <button class="btn btn-primary btn-lg" onclick="something()">Click me</button>
+
+<script type="text/javascript">
+  $(function () {
+      update_orders_input();
+      update_orders_button();
+  })
+</script>

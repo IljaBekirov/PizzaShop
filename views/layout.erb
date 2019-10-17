@@ -41,12 +41,20 @@
 			    </ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="/" style="font-size: 25px;">
-								<span class="glyphicon glyphicon-shopping-cart" style="font-size: 25px;"></span>
-								<span class="badge" style="font-size: 20px;">6</span>
-							</a>
+							<form action="/cart" method="post">
+								<input id="orders_input" name="orders" type="hidden" />
+								<input type="submit" class="btn btn-primary btn-lg" value="Cart(...)">
+							</form>
 						</li>
 					</ul>
+<!--					<ul class="nav navbar-nav navbar-right">-->
+<!--						<li>-->
+<!--							<a href="/" style="font-size: 25px;">-->
+<!--								<span class="glyphicon glyphicon-shopping-cart" style="font-size: 25px;"></span>-->
+<!--								<span id="orders_button" class="badge" style="font-size: 20px;"></span>-->
+<!--							</a>-->
+<!--						</li>-->
+<!--					</ul>-->
 			  </div><!--/.nav-collapse -->
 			</nav>
 
