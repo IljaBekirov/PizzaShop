@@ -14,8 +14,8 @@ function add_to_cart(id) {
   update_orders_input();
   update_orders_button();
 
-    // Вывод количества items в корзине
-    // alert('Items in your cart: ' + cart_get_number_of_items());
+  // Вывод количества items в корзине
+  // alert('Items in your cart: ' + cart_get_number_of_items());
 }
 
 function update_orders_input() {
@@ -24,22 +24,22 @@ function update_orders_input() {
 }
 
 function update_orders_button() {
-    var text = cart_get_number_of_items();
-    $('#cart_button').val(text);
+  var text = 'Cart (' + cart_get_number_of_items() + ')';
+  $('#orders_button').val(text);
 }
 
 function cart_get_number_of_items() {
-    var cnt = 0;
-    for (var i = 0; i < window.localStorage.length; i++)
+  var cnt = 0;
+  for (var i = 0; i < window.localStorage.length; i++)
+  {
+    var key = window.localStorage.key(i); // получаем ключ
+    var value = window.localStorage.getItem(key);
+    if(key.indexOf('product_') == 0)
     {
-        var key = window.localStorage.key(i); // получаем ключ
-        var value = window.localStorage.getItem(key);
-        if(key.indexOf('product_') == 0)
-        {
-            cnt = cnt + value * 1;
-        }
+      cnt = cnt + value * 1;
     }
-    return cnt;
+  }
+  return cnt;
 }
 
 function cart_get_orders() {
@@ -50,9 +50,8 @@ function cart_get_orders() {
     var value = window.localStorage.getItem(key);
     if(key.indexOf('product_') == 0)
       {
-          orders = orders + key + '=' + value + ',';
+        orders = orders + key + '=' + value + ',';
       }
-    }
-    return orders;
-
+  }
+  return orders;
 }
