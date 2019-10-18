@@ -23,11 +23,8 @@ end
 post '/cart' do
   orders_input = params[:orders]
   @orders = parse_orders_line(orders_input)
-  @products = []
   @orders.map do |order|
-    product = Product.find_by_id(order[0].to_i)
-    @products << [product, order[1]]
-    @products
+    order[0] = Product.find_by_id(order[0].to_i)
   end
   erb :cart
 end
