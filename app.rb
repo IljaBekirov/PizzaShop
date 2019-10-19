@@ -11,6 +11,9 @@ class Product < ActiveRecord::Base
   end
 end
 
+class Order < ActiveRecord::Base
+end
+
 get '/' do
   @products = Product.all
   erb :index
@@ -40,4 +43,19 @@ def parse_orders_line(orders_input)
     arr << [id, cnt]
   end
   arr
+end
+
+post '/place_order' do
+  @o = Order.new(params[:order])
+  if @o.save
+    erb '<h2>Заказ принят!</h2>'
+  else
+    @error = @o.errors.full_messages.first
+    erb :index
+  end
+end
+
+get '/orders' do
+  @orders = Order.all
+  erb :orders
 end

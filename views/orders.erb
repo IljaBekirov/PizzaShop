@@ -1,0 +1,25 @@
+<h2>Заказы:</h2>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Имя</th>
+    <th>Телефон</th>
+    <th>Заказ</th>
+    <th>Адрес</th>
+    <th>Дата заказа</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @orders.each_with_index do |order, index| %>
+    <tr>
+      <th scope="row"><%= index + 1 %></th>
+      <td><%= order.name %></td>
+      <td><%= order.phone %></td>
+      <td><%= order.orders_input %></td>
+      <td><%= order.address %></td>
+      <td><%= order.created_at %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
