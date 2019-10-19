@@ -33,7 +33,7 @@ get '/cart' do
 end
 
 post '/cart' do
-  @orders_input = params[:orders]
+  @orders_input = params[:orders_input]
   @orders = parse_orders_line(@orders_input)
   @orders.map do |order|
     order[0] = Product.find_by_id(order[0].to_i)
