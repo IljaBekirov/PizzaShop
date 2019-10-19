@@ -23,7 +23,7 @@
   <% total_price += prod[0].price * prod[1].to_i %>
   <% total_qty += prod[1].to_i %>
   <% end %>
-    <tr>
+    <tr style="font-size: large; font-weight: bold">
       <td></td>
       <td>Итого:</td>
       <td><%= total_qty %></td>
@@ -32,3 +32,23 @@
     </tr>
   </tbody>
 </table>
+
+<form action="/place_order" method="post" role="form">
+  <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>"/>
+  <div class="form-group">
+    <label>Имя:</label>
+    <input name="order[name]" type="text" class="form-control" placeholder="Ваше имя">
+  </div>
+
+  <div class="form-group">
+    <label>Телефон:</label>
+    <input name="order[phone]" type="text" class="form-control" placeholder="Ваш телефон">
+  </div>
+
+  <div class="form-group">
+    <label>Адрес доставки:</label>
+    <textarea name="order[address]" class="form-control" placeholder="Адрес доставки"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-success">Оформить заказ</button>
+</form>
