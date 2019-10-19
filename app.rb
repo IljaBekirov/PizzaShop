@@ -23,6 +23,15 @@ get '/about' do
   erb :about
 end
 
+get '/cart' do
+  @orders_input = params[:orders]
+  @orders = parse_orders_line(@orders_input)
+  @orders.map do |order|
+    order[0] = Product.find_by_id(order[0].to_i)
+  end
+  erb :cart
+end
+
 post '/cart' do
   @orders_input = params[:orders]
   @orders = parse_orders_line(@orders_input)

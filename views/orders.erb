@@ -7,6 +7,7 @@
     <th>Телефон</th>
     <th>Заказ</th>
     <th>Адрес</th>
+    <th>Сумма заказа</th>
     <th>Дата заказа</th>
   </tr>
   </thead>
@@ -18,6 +19,7 @@
       <td><%= order.phone %></td>
       <td><%= order.orders_input %></td>
       <td><%= order.address %></td>
+      <td><%= order.total_price %></td>
       <td><%= order.created_at %></td>
     </tr>
   <% end %>

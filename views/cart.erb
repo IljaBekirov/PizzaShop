@@ -35,6 +35,7 @@
 
 <form action="/place_order" method="post" role="form">
   <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>"/>
+  <input name="order[total_price]" type="hidden" value="<%= total_price %>" />
   <div class="form-group">
     <label>Имя:</label>
     <input name="order[name]" type="text" class="form-control" placeholder="Ваше имя">
