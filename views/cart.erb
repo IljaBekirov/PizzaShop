@@ -10,6 +10,8 @@
     </tr>
   </thead>
   <tbody>
+  <% total_price = 0 %>
+  <% total_qty = 0 %>
   <% @orders.each_with_index do |prod, index| %>
     <tr>
       <th scope="row"><%= index + 1 %></th>
@@ -18,11 +20,15 @@
       <td><%= prod[0].price %></td>
       <td><%= prod[0].price * prod[1].to_i %></td>
     </tr>
+  <% total_price += prod[0].price * prod[1].to_i %>
+  <% total_qty += prod[1].to_i %>
   <% end %>
-  <%# @orders.each do |prod| %>
-<!--    <tr>-->
-<!--      <td>1</td>-->
-<!--    </tr>-->
-  <%# end %>
+    <tr>
+      <td></td>
+      <td>Итого:</td>
+      <td><%= total_qty %></td>
+      <td></td>
+      <td><%= total_price %> руб.</td>
+    </tr>
   </tbody>
 </table>
