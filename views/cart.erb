@@ -1,5 +1,28 @@
 <h2>Cart</h2>
-<% @orders.each do |prod| %>
-  Название: <%= prod[0].title %>, количество: <%= prod[1] %> шт.
-  <br>
-<% end %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Наименование</th>
+      <th>Количество</th>
+      <th>Цена</th>
+      <th>Сумма</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @orders.each_with_index do |prod, index| %>
+    <tr>
+      <th scope="row"><%= index + 1 %></th>
+      <td><%= prod[0].title %></td>
+      <td><%= prod[1] %></td>
+      <td><%= prod[0].price %></td>
+      <td><%= prod[0].price * prod[1].to_i %></td>
+    </tr>
+  <% end %>
+  <%# @orders.each do |prod| %>
+<!--    <tr>-->
+<!--      <td>1</td>-->
+<!--    </tr>-->
+  <%# end %>
+  </tbody>
+</table>
