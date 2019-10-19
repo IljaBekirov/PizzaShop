@@ -35,6 +35,10 @@ end
 post '/cart' do
   @orders_input = params[:orders_input]
   @orders = parse_orders_line(@orders_input)
+
+  if @orders.length == 0
+    return erb :cart_is_empty
+  end
   @orders.map do |order|
     order[0] = Product.find_by_id(order[0].to_i)
   end
